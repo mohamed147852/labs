@@ -8,7 +8,7 @@ shift_reg  #(.width (4) ) sr (.*) ;
     always #5 clk = ~clk ;
         
     initial begin
-        $monitor ("clk+%b   rstn=%b  hold=%b   output=%b   ",clk,rstn,hold,out);
+        $monitor ("clk=%b   rstn=%b  hold=%b   output=%b   ",clk,rstn,hold,out);
         clk = 0 ;
            rstn = 0;
            hold = 0;
