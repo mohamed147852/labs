@@ -1,0 +1,37 @@
+module tb_topshift ;
+    reg clk_in;
+    reg rstn;
+    reg hold;
+    wire [3:0] sh_out;
+    wire [3:0] led;
+    
+  topmod_shift ts (
+        .clk_in(clk_in),
+        .rstn(rstn),
+        .hold(hold),
+        .sh_out(sh_out),
+        .led(led)
+  );
+
+  always #10 clk_in = ~ clk_in ;
+  initial begin
+    $monitor("clk=%b  rstn=%b  hlod=%b  sh_out = %b ",
+     clk_in,rstn,hold,sh_out);
+
+    clk_in =0 ;
+    rstn= 1 ;
+    hold= 0;
+    #20;
+    rstn = 1 ;
+    #20;
+    hold = 1;
+    #20;
+    hold = 0;
+    rstn = 0;
+    #20;
+    rstn = 1;
+    #200;
+    $finish ;
+  end
+    
+endmodule
