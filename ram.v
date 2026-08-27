@@ -21,7 +21,7 @@ module ram #(
 
     reg [data_width-1:0] mem [0:mem_depth-1];
     integer i ;
-    // Write
+    
     always f1 @(posedge clk) begin
         if (reset) begin
            for ( i = 0 ; i < mem_depth ; i = i + 1 ) begin
