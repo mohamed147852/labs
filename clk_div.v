@@ -17,7 +17,7 @@ always @(posedge clk_in or negedge rstn)begin
         counter <= 23'd0;
                 clk_out <= ~clk_out;
             end else begin
-                counter <= counter + 23'd1;
+                counter <= counter + 1'b1;
             end
         end
     end
